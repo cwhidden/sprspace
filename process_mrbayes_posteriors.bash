@@ -77,7 +77,7 @@ for runs in `(ls $top_dir/*.run*.t*; ls -d $top_dir/run[0-9]*) 2>/dev/null | gre
 		CAT="gunzip -c"
 	fi
 	
-	$CAT $tree_file | $SPLIT_NEXUS_TREE | awk '{print $2,$3}' > $TREES_ALL
+	$CAT $tree_file | perl $SPLIT_NEXUS_TREE | awk '{print $2,$3}' > $TREES_ALL
 	
 	$NW_ORDER <(awk '{print $2}' < $TREES_ALL) > $TREES_ONLY_ALL_ORDERED
 	paste <(awk '{print $1}' < $TREES_ALL) $TREES_ONLY_ALL_ORDERED > $TREES_ALL_ORDERED
