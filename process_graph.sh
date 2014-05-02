@@ -34,6 +34,10 @@ dir=$1
 # max graph size constructed
 MAX_GRAPH_SIZE=${2:-1024}
 
+if [ "$MAX_GRAPH_SIZE" -lt "$MIN_GRAPH_SIZE" ]; then
+	MIN_GRAPH_SIZE=$MAX_GRAPH_SIZE;
+fi
+
 ROOTED=${3:--unrooted}
 
 # script location
@@ -59,13 +63,15 @@ awk '{print 0","$1}' < $dir/uniq_shapes_C_sorted_by_PP |
 		perl $SCRIPTPATH/cytoscape_PP.pl > $graph_dir/graph_pp.tab
 
 end=`cat $dir/uniq_shapes_C_sorted_by_PP | wc -l`
+
 size=$MIN_GRAPH_SIZE
 while [ "$size" -lt "$end" ]; do
-	echo $size
 
 	if [ $size -gt $MAX_GRAPH_SIZE ]; then
 		exit;
 	fi	
+
+	echo $size
 
 size_plus_one=$(($size+1))
 
