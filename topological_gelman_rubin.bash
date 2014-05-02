@@ -52,7 +52,7 @@ head -n$top $top_dir/uniq_shapes_C_numbered | awk '{print $3}' | $RSPR -pairwise
 
 # compute G-R
 ls -d $top_dir/run[0-9]*
-ls -d $top_dir/run[0-9]* | perl $SCRIPTPATH/topo_gr.pl $top_dir/uniq_shapes_C_numbered $top_dir/spr_distance_matrix $range $top $foo
+ls -d $top_dir/run[0-9]* | perl $SCRIPTPATH/topo_gr.pl $top_dir/uniq_shapes_C_numbered $top_dir/spr_distance_matrix $top
 
 
 # cleanup large files

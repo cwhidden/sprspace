@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/perl
 ################################################################################
 # topo_gr.pl
 ################################################################################
@@ -25,24 +25,23 @@
 # You should have received a copy of the GNU General Public License
 # spr_grapheralong with spr_grapher.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
-#!/usr/bin/perl
 
 use File::Basename;
 
 die "usage: topo_gr.pl <tree_list> <distance_matrix> <num_samples>\n" unless ($#ARGV >= 2);
 my $tree_list_file = $ARGV[0];
 my $distance_matrix = $ARGV[1];
-my $num_samples = $ARGV[2];
+#my $num_samples = $ARGV[2];
 my $top = 4096;
-if ($#ARGV >= 3) {
-	$top = $ARGV[3];
+if ($#ARGV >= 2) {
+	$top = $ARGV[2];
 }
 # 1 - square each distance
 # 2 - square difference of tree to other trees
 # 3 - neither
 my $mode=1;
-if ($#ARGV >= 4) {
-	$mode = $ARGV[4];
+if ($#ARGV >= 3) {
+	$mode = $ARGV[3];
 }
 my $top_dir = dirname($tree_list_file);
 
