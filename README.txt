@@ -1,5 +1,5 @@
 ################################################################################
-spr_grapher
+sprspace
 ################################################################################
 
 This is a collection of shell and perl scripts for quantifying MCMC
@@ -14,19 +14,19 @@ cwhidden@fhcrc.org
 May 1, 2014
 Version 1.0
 
-This file is part of spr_grapher.
+This file is part of sprspace.
 
-spr_grapher is free software: you can redistribute it and/or modify
+sprspace is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-spr_grapher is distributed in the hope that it will be useful,
+sprspace is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with spr_grapher.  If not, see <http://www.gnu.org/licenses/>.
+along with sprspace.  If not, see <http://www.gnu.org/licenses/>.
 
 ################################################################################
 SYNOPSIS
@@ -95,7 +95,7 @@ FILES
 
 Main Files:
 
-gpl.txt
+COPYING
 Makefile
 mean_access_time.pl
 process_graph.sh
@@ -147,7 +147,7 @@ Note that the sample usage shown here assumes that all files are in the
 current directory and should be amended as necessary (e.g. with the
 directory containing process_mrbayes_posterior.bash).
 The interpreter (bash or perl) is unnecessary if the scripts
-are made executable (chmod +x <scriptname>). Further, if the spr_grapher
+are made executable (chmod +x <scriptname>). Further, if the sprspace
 scripts are in your path then they can be invoked without the leading
 directory.
 

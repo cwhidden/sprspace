@@ -12,19 +12,19 @@
 # May 2, 2014
 # Version 1.0
 # 
-# This file is part of spr_grapher.
+# This file is part of sprspace.
 # 
-# spr_grapher is free software: you can redistribute it and/or modify
+# sprspace is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# spr_grapher is distributed in the hope that it will be useful,
+# sprspace is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 # 
 # You should have received a copy of the GNU General Public License
-# spr_grapheralong with spr_grapher.  If not, see <http://www.gnu.org/licenses/>.
+# along with sprspace.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
 # script location
