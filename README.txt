@@ -117,6 +117,7 @@ get_95_credible_set.pl
 id_trees.pl
 matrix2pairs.cpp -> matrix2pairs
 neighbourhood_pp.pl
+shuffle.pl
 split_nexus_tree.pl
 topo_gr.pl
 

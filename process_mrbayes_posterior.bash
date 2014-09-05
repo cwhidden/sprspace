@@ -38,6 +38,7 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 SPLIT_NEXUS_TREE=$SCRIPTPATH/split_nexus_tree.pl
 FIND_UNIQ_BEST_LL=$SCRIPTPATH/find_uniq_best_ll.pl
 GET_CRED_SET=$SCRIPTPATH/get_95_credible_set.pl
+SHUFFLE=$SCRIPTPATH/shuffle.pl
 
 FIGS=figs
 
@@ -96,7 +97,7 @@ awk '{print $2","$3}' < $dir/uniq_trees_T > $probs_uniq_T
 paste -d\; <(awk '{print $1}' < $TREES_ALL_ORDERED) <(awk -F, '{print $2}' < $LL_ALL) <(awk '{print $2}' < $TREES_ALL_ORDERED) | awk -F\; 'BEGIN {OFS=";";} $1>='$threshold_val | sort -t\; -k3,3 | perl $FIND_UNIQ_BEST_LL > $dir/uniq_shapes_T
 
 # get PP
-sort -k1,1n $dir/uniq_shapes_T | tac | awk '{$1=($1/'$range'); print}' > $dir/uniq_shapes_T_sorted_by_PP
+perl $SHUFFLE < $dir/uniq_shapes_T | sort -k1,1n | tac | awk '{$1=($1/'$range'); print}' > $dir/uniq_shapes_T_sorted_by_PP
 perl $GET_CRED_SET < $dir/uniq_shapes_T_sorted_by_PP > $dir/uniq_shapes_C_sorted_by_PP
 
 # cleanup large files
