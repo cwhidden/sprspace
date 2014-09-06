@@ -132,7 +132,7 @@ done
 echo "aggregating topologies";
 num_runs=`ls -d $out_dir/run[0-9]* | wc -l`
 CAT=cat
-$CAT $out_dir/run*/uniq_shapes_C_sorted_by_PP | sort -k4,4 | perl $SCRIPTPATH/aggregate_pp.pl | awk '{print $1/'$num_runs',$2}' | sort -k1,1g | tac > $out_dir/uniq_shapes_C_sorted_by_PP
+$CAT $out_dir/run*/uniq_shapes_C_sorted_by_PP | sort -k4,4 | perl $SCRIPTPATH/aggregate_pp.pl | awk '{print $1/'$num_runs',$2}' | sort -R | sort -k1,1g | tac > $out_dir/uniq_shapes_C_sorted_by_PP
 
 # id topologies
 ls -d $out_dir/run[0-9]* | perl $SCRIPTPATH/id_trees.pl $out_dir/uniq_shapes_C_sorted_by_PP
