@@ -38,7 +38,6 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 SPLIT_NEXUS_TREE=$SCRIPTPATH/split_nexus_tree.pl
 FIND_UNIQ_BEST_LL=$SCRIPTPATH/find_uniq_best_ll.pl
 GET_CRED_SET=$SCRIPTPATH/get_95_credible_set.pl
-SHUFFLE=$SCRIPTPATH/shuffle.pl
 
 # arguments
 out_dir=$1
@@ -124,7 +123,7 @@ for runs in `(ls $top_dir/*.run*.t*; ls -d $top_dir/run[0-9]*) 2>/dev/null | gre
 	rm $LL_ALL
 	
 	# get PP
-	perl $SHUFFLE $dir/uniq_shapes_T | sort -k1,1n | tac | awk '{$1=($1/'$range'); print}' > $dir/uniq_shapes_T_sorted_by_PP
+	sort -R $dir/uniq_shapes_T | sort -k1,1n | tac | awk '{$1=($1/'$range'); print}' > $dir/uniq_shapes_T_sorted_by_PP
 	perl $GET_CRED_SET < $dir/uniq_shapes_T_sorted_by_PP > $dir/uniq_shapes_C_sorted_by_PP
 	
 done
