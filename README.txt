@@ -84,7 +84,8 @@ INSTALLATION
    other and they must remain in the same directory.
 
 2. Run "make" in this directory to compile matrix2pairs.cpp as
-   matrix2pairs. The makefile assumes the g++ compiler is present.
+   matrix2pairs and fill_matrix.cpp as fill_matrix. The makefile assumes the
+   g++ compiler is present.
 
 3. Obtain rspr and the Newick Utilities program nw_order (see Requirements,
    above). Enter the location of these two programs in the file settings.sh.
@@ -113,6 +114,7 @@ cytoscape_cluster.pl
 cytoscape_edge_weights.pl
 cytoscape_PP.pl
 find_uniq_best_ll.pl
+fill_matrix.cpp -> fill_matrix
 get_95_credible_set.pl
 id_trees.pl
 matrix2pairs.cpp -> matrix2pairs
