@@ -1,5 +1,9 @@
+# script location
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+
 RSPR=~/bin/rspr
-FILL_MATRIX=~/bin/fill_matrix
+FILL_MATRIX=$SCRIPTPATH/fill_matrix
 NW_ORDER=~/bin/nw_order
 BURNIN_THRESHOLD=0.25
 
