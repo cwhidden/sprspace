@@ -48,26 +48,26 @@ for runs in `(ls $top_dir/*.run*.t*; ls -d $top_dir/run[0-9]*) 2>/dev/null | gre
 	echo "processing $runs";
 
 	dir=$out_dir/$runs/
-	
-	if [ -f $top_dir/*.$runs.t.gz ]; then
+
+	if [ -f $top_dir/*.$runs.t.gz ] ; then
 		tree_file=$top_dir/*.$runs.t.gz
-	elif [ -f $top_dir/*.$runs.t ]; then
+	elif [ -f $top_dir/*.$runs.t ] ; then
 		tree_file=$top_dir/*.$runs.t
-	elif [ -f $runs/*.$runs.t.gz ]; then
-		tree_file=$runs/*.$runs.t.gz
-	elif [ -f $runs/*.$runs.t.gz ]; then
-		tree_file=$runs/*.$runs.t
+	elif [ -f $top_dir/$runs/*.$runs.t.gz ] ; then
+		tree_file=$top_dir/$runs/*.$runs.t.gz
+	elif [ -f $top_dir/$runs/*.$runs.t ] ; then
+		tree_file=$top_dir/$runs/*.$runs.t
 	else
 		continue;
 	fi
-	if [ -f $top_dir/*.$runs.p.gz ]; then
+	if [ -f $top_dir/*.$runs.p.gz ] ; then
 		prob_file=$top_dir/*.$runs.p.gz
-	elif [ -f $top_dir/*.$runs.p ]; then
+	elif [ -f $top_dir/*.$runs.p ] ; then
 		prob_file=$top_dir/*.$runs.p
-	elif [ -f $runs/*.$runs.p.gz ]; then
-		prob_file=$runs/*.$runs.p.gz
-	elif [ -f $runs/*.$runs.p.gz ]; then
-		prob_file=$runs/*.$runs.p
+	elif [ -f $top_dir/$runs/*.$runs.p.gz ] ; then
+		prob_file=$top_dir/$runs/*.$runs.p.gz
+	elif [ -f $top_dir/$runs/*.$runs.p ] ; then
+		prob_file=$top_dir/$runs/*.$runs.p
 	else
 		continue;
 	fi

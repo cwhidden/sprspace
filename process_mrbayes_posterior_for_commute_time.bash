@@ -93,12 +93,6 @@ num_trees=`cat $TREES_ALL_ORDERED | wc -l`;
 threshold_val=`echo "$num_trees * $BURNIN_T" | bc`;
 range=`echo "scale=0; ($num_trees - $threshold_val)/1" | bc`;
 awk '$2>='$threshold_val < $UNIQ_TREES > $dir/uniq_trees_T
-awk '{print $2","$3}' < $dir/uniq_trees_T > $probs_uniq_T
-paste -d\; <(awk '{print $1}' < $TREES_ALL_ORDERED) <(awk -F, '{print $2}' < $LL_ALL) <(awk '{print $2}' < $TREES_ALL_ORDERED) | awk -F\; 'BEGIN {OFS=";";} $1>='$threshold_val | sort -t\; -k3,3 | perl $FIND_UNIQ_BEST_LL > $dir/uniq_shapes_T
-
-# get PP
-sort -R $dir/uniq_shapes_T | sort -s -k1,1n | tac | awk '{$1=($1/'$range'); print}' > $dir/uniq_shapes_T_sorted_by_PP
-perl $GET_CRED_SET < $dir/uniq_shapes_T_sorted_by_PP > $dir/uniq_shapes_C_sorted_by_PP
 
 # cleanup large files
 rm $TREES_ALL_ORDERED

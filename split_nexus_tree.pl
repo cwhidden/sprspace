@@ -28,27 +28,19 @@
 # along with sprspace.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-my @trees = ();
+#my @trees = ();
+my $i = 1;
 while(<>) {
 	if (/^\s*tree ([^ ]*)[^(]* (\([^ ]*\)[^()]*;)/) {
 		my ($name, $tree) = ($1, $2);
 		$tree =~ s/:[^(),]*//g;
 		$tree =~ s/\[[^\]]*\]//g;
 #		print "$name $post $tree\n";;
-		push(@trees, [$name, $tree]);
+		#push(@trees, [$name, $tree]);
+		print "$name ";
+		my $length = length($i);
+		print sprintf("%0" . $length . "d", $i-1);
+		print " $tree\n";
+		$i++;
 	}
-}
-#@trees = sort {$b->[1] <=> $a->[1]} @trees;
-my $i = 0;
-for my $tree (@trees) {
-#	if ($i == 0) {
-#		$i++;
-#		next;
-#	}
-	my @t = @$tree;
-	print "$t[0] ";
-	my $length = length($#trees+1);
-	print sprintf("%0" . $length . "d", $i);
-	print " $t[1]\n";
-	$i++;
 }
