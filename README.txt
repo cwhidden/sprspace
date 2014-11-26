@@ -70,7 +70,7 @@ Utilities to identify identical trees. Constructed graphs can be
 visualized with the open source Cytoscape graph visualization program
 (or other graph visualization programs).
 
-rspr can be obtained from http://kiwi.cs.dal.ca/Software/RSPR and requires a
+rspr can be obtained from https://github.com/cwhidden/rspr and requires a
 C++ compiler to build.  The Newick Utilities can be obtained from
 http://cegg.unige.ch/newick_utils .  Cytoscape can be obtained from
 http://www.cytoscape.org/ .
