@@ -138,8 +138,8 @@ while(<STDIN>) {
 	my ($step) = split();
 	/\(\S+\)/;
 	my $tree = $&;
-	my $n = $prev_n + $step;
-	$prev_n = $n;
+	my $n = $prev_n;
+	my $final_n = $n + $step;
 	if (!exists($index{$tree})) {
 		if ($tree_list eq "") {
 			$index{$tree} = $trees_seen;
@@ -147,6 +147,7 @@ while(<STDIN>) {
 			$found = 1;
 		}
 		else {
+			$prev_n = $final_n;
 			next;
 		}
 	}
@@ -157,7 +158,11 @@ while(<STDIN>) {
 		$max = $num_trees_2;
 	}
 
-	for my $j (0..($max)) {
+		while ($n < $final_n) {
+			$n++;
+
+		for my $j (0..($max)) {
+
 
 		# update j -> i
 		if (($info{$j}{$i}{count} + $info{$j}{$i}{start_count}) > 0) {
@@ -177,7 +182,9 @@ while(<STDIN>) {
 		# running mean of i visits before j visit
 		$info{$i}{$j}{mean_start} += ($n - $info{$i}{$j}{mean_start}) / $info{$i}{$j}{start_count}; 
 	}
+	}
 	
+	$prev_n = $final_n;
 }
 
 #print "trees_seen: $trees_seen\n";
