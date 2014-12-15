@@ -161,27 +161,30 @@ while(<STDIN>) {
 		while ($n < $final_n) {
 			$n++;
 
-		for my $j (0..($max)) {
-
-
-		# update j -> i
-		if (($info{$j}{$i}{count} + $info{$j}{$i}{start_count}) > 0) {
-			my $update_weight = $info{$j}{$i}{start_count} /
-					($info{$j}{$i}{count} + $info{$j}{$i}{start_count});
-			my $update = ($n - $info{$j}{$i}{mean_start})
-					- $info{$j}{$i}{mean_access}; 
-			$info{$j}{$i}{mean_access} += $update_weight * $update;
+			for my $j (0..($max)) {
 	
-			$info{$j}{$i}{count} += $info{$j}{$i}{start_count};
-			$info{$j}{$i}{start_count} = 0;
-			$info{$j}{$i}{start_avg} = 0;
+	
+			# update j -> i
+			if (($info{$j}{$i}{count} + $info{$j}{$i}{start_count}) > 0) {
+				my $update_weight = $info{$j}{$i}{start_count} /
+						($info{$j}{$i}{count} + $info{$j}{$i}{start_count});
+				my $update = ($n - $info{$j}{$i}{mean_start})
+						- $info{$j}{$i}{mean_access}; 
+				$info{$j}{$i}{mean_access} += $update_weight * $update;
+		
+				$info{$j}{$i}{count} += $info{$j}{$i}{start_count};
+				$info{$j}{$i}{start_count} = 0;
+				$info{$j}{$i}{start_avg} = 0;
+			}
+	
+			# update i -> j
+			## TESTING ignore multiple visits
+			if ($info{$i}{$j}{start_count} == 0) {
+				$info{$i}{$j}{start_count}++;
+				# running mean of i visits before j visit
+				$info{$i}{$j}{mean_start} += ($n - $info{$i}{$j}{mean_start}) / $info{$i}{$j}{start_count}; 
+			}
 		}
-
-		# update i -> j
-		$info{$i}{$j}{start_count}++;
-		# running mean of i visits before j visit
-		$info{$i}{$j}{mean_start} += ($n - $info{$i}{$j}{mean_start}) / $info{$i}{$j}{start_count}; 
-	}
 	}
 	
 	$prev_n = $final_n;
