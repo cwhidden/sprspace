@@ -6,8 +6,9 @@ This is a collection of shell and perl scripts for quantifying MCMC
 (Markov chain Monte Carlo) exploration of tree space in MrBayes posteriors.
 
 For more information see:
-C. Whidden and F. A. Matsen IV. Quantifying MCMC Exploration of Phylogenetic
-Tree Space. Submitted. Preprint available at: TODO: arXiv link
+C. Whidden and F. A. Matsen IV. (2015) Quantifying MCMC Exploration of
+Phylogenetic Tree Space. Systematic Biology. First published online: January
+27, 2015. doi:10.1093/sysbio/syv006
 
 Copyright 2014 Chris Whidden
 cwhidden@fhcrc.org
